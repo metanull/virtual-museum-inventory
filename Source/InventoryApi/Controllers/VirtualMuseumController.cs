@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-
+using InventoryApi.Models;
 namespace InventoryApi.Controllers;
 
 [ApiController]
@@ -20,8 +20,8 @@ public class VirtualMuseumController : ControllerBase
         {
             Id = new Guid("00000000-0000-0000-0000-000000000000"),
             Revision = 1,
-            UpdatedDate = DateTime.Now,
-            CreatedDate = DateTime.Now,
+            UpdatedDate = null,
+            CreatedDate = DateTime.UtcNow,
             Name = "Default",
             Description = "Default virtual museum. A virtual museum is a digital entity that is used as a 'container' or 'context' for all the items in one virtual museum."
         })
