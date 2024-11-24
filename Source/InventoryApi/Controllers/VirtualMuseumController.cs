@@ -22,8 +22,8 @@ public class VirtualMuseumController : ControllerBase
             Revision = 1,
             UpdatedDate = null,
             CreatedDate = DateTime.UtcNow,
-            Name = "Default",
-            Description = "Default virtual museum. A virtual museum is a digital entity that is used as a 'container' or 'context' for all the items in one virtual museum."
+            Name = "Museum With No Frontiers",
+            Description = "This is the default Virtual Museum context, it holds Items and Partners that are not categorized yet."
         })
         .ToArray();
     }

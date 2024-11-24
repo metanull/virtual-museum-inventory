@@ -22,8 +22,8 @@ public class PartnerController : ControllerBase
             Revision = 1,
             UpdatedDate = null,
             CreatedDate = DateTime.UtcNow,
-            Name = "Dummy",
-            Description = "This is a dummy Partner."
+            Name = "Museum With No Frontiers",
+            Description = "This is the default Partner, representing the MWNF association itself; it holds Items who's rights have been transferred to MWNF by the owner."
         })
         .ToArray();
     }
