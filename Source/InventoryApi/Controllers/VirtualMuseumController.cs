@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-
+using InventoryApi.Models;
 namespace InventoryApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class VirtualMuseumController : ControllerBase
 {
     private readonly ILogger<VirtualMuseumController> _logger;
@@ -13,18 +13,30 @@ public class VirtualMuseumController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetVirtualMuseum")]
-    public IEnumerable<VirtualMuseum> Get()
+    [HttpGet()]
+    [ProducesResponseType<List<VirtualMuseum>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]   
+    public ActionResult<IEnumerable<VirtualMuseum>> Get()
     {
-        return Enumerable.Range(1, 1).Select(index => new VirtualMuseum
-        {
-            Id = new Guid("00000000-0000-0000-0000-000000000000"),
-            Revision = 1,
-            UpdatedDate = DateTime.Now,
-            CreatedDate = DateTime.Now,
-            Name = "Default",
-            Description = "Default virtual museum. A virtual museum is a digital entity that is used as a 'container' or 'context' for all the items in one virtual museum."
-        })
-        .ToArray();
+        var VirtualMuseums = TestData.AllVirtualMuseums().ToList();
+        if (VirtualMuseums.Count == 0) {
+            return NotFound();
+        } else {
+            return Ok(VirtualMuseums);
+        }
+    }
+
+    [HttpGet("{Id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<VirtualMuseum> Get(Guid Id)
+    {
+         _logger.LogInformation("VirtualMuseum({id}) at {time}", Id, DateTime.UtcNow.ToLongTimeString());
+
+        try {
+            return Ok(TestData.AllVirtualMuseums().Where(virtualMuseum => (virtualMuseum.Id == Id)).First());
+        } catch (InvalidOperationException) {
+            return NotFound();
+        }
     }
 }
