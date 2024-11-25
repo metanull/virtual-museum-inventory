@@ -27,10 +27,10 @@ The objective is to provide an unique and central repository, and API to maintai
 flowchart TD
     Partner("fa:fa-institution Partner") -- Participates into --> VirtualMuseum("fa:fa-book VirtualMuseum")
     Partner -- Provides --> Item("fa:fa-address-card Item")
-    Item -- Has --> Image("fa:fa-image Image")
+    Item -- Has --> ItemImage("fa:fa-image ItemImage")
     Partner -. Is customized in the context of .-> ContextualizedPartner@{ label: "fa:fa-file-text Partner's Contextualized Information" }
     Item -. Is customized in the context of .-> ContextualizedItem@{ label: "fa:fa-file-text Item's Contextualized Information" }
-    Image -. Is customized in the context of .-> ContextualizedImage@{ label: "fa:fa-file-text Image's Contextualized Information" }
+    ItemImage -. Is customized in the context of .-> ContextualizedImage@{ label: "fa:fa-file-text Image's Contextualized Information" }
     VirtualMuseum -. Is the context for .-> ContextualizedPartner & ContextualizedItem & ContextualizedImage
     Inventory["Inventory"]
 
@@ -44,15 +44,15 @@ flowchart TD
     style Partner fill:#FF6D00
     style VirtualMuseum fill:#FF6D00
     style Item fill:#FF6D00
-    style Image fill:#FF6D00
+    style ItemImage fill:#6DFF00
     style ContextualizedPartner fill:#BBDEFB,stroke-width:1px,stroke-dasharray: 1
     style ContextualizedItem fill:#BBDEFB,stroke-width:1px,stroke-dasharray: 1
     style ContextualizedImage fill:#BBDEFB,stroke-width:1px,stroke-dasharray: 1
 ```
 
-## The applications
+## The collections
 
-Different type of applications exist:
+Different type of collections exist:
 - *Museum*
 - *Gallery*
 - *Exhibition*

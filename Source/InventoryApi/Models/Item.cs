@@ -6,6 +6,7 @@ namespace InventoryApi.Models;
     */
 public class Item : InventoryCommon
 {
+    public required Guid PartnerId { get; set; }
     public required string Name { get; set; }
     public string? Description { get; set; }
 }
