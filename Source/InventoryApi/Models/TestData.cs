@@ -71,4 +71,51 @@ public static class TestData {
         };
         return Items;
     }
+
+    public static IEnumerable<Image> AllImages()
+    {
+        List<Image> Items = new List<Image>{
+            new Image {
+                Id = new Guid("1018cf65-b6c1-458a-b4fe-a1192e0aef58"),
+                Revision = 1,
+                UpdatedDate = null,
+                CreatedDate = DateTime.UtcNow,
+                ItemId = new Guid("fea330f2-302d-4966-959f-d7663e4a4a55"),
+                FileId = new Guid( "00000000-0000-0000-0000-000000000000"),
+                Name = "An image of a dummy",
+                Description = "This is a dummy Image of a dummy."
+            },
+            new Image {
+                Id = new Guid("cffa1944-e5a3-43d0-80ba-de419f5a1728"),
+                Revision = 1,
+                UpdatedDate = null,
+                CreatedDate = DateTime.UtcNow,
+                ItemId = new Guid("fea330f2-302d-4966-959f-d7663e4a4a55"),
+                FileId = new Guid( "00000000-0000-0000-0000-000000000000"),
+                Name = "Another image of the same dummy",
+                Description = "This is another dummy Image of a dummy."
+            },
+            new Image {
+                Id = new Guid("53c8b13c-7647-4b8b-a5b0-402cd20cb6cb"),
+                Revision = 1,
+                UpdatedDate = null,
+                CreatedDate = DateTime.UtcNow,
+                ItemId = new Guid("510dbe04-5ecd-41bb-b080-a18a3593da00"),
+                FileId = new Guid( "00000000-0000-0000-0000-000000000000"),
+                Name = "An image of another Dummy",
+                Description = "This is a dummy Image of a dummy."
+            },
+            new Image {
+                Id = new Guid("b4b4683e-3bfe-41bb-a036-f684013e56ab"),
+                Revision = 1,
+                UpdatedDate = null,
+                CreatedDate = DateTime.UtcNow,
+                ItemId = new Guid("510dbe04-5ecd-41bb-b080-a18a3593da00"),
+                FileId = new Guid( "00000000-0000-0000-0000-000000000000"),
+                Name = "Another image of the same another dummy",
+                Description = "This is another dummy Image of a another dummy."
+            }
+        };
+        return Items;
+    }
 }
