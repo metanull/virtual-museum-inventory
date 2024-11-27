@@ -15,7 +15,7 @@ public class ItemController : ControllerBase
 
     [HttpGet()]
     [ProducesResponseType<List<Item>>(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status204NoContent)]   
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public ActionResult<IEnumerable<Item>> Get()
     {
         var Items = TestData.AllItems().ToList();
@@ -53,6 +53,20 @@ public class ItemController : ControllerBase
                             partner => (partner.Id == TestData.AllItems().Where(item => (item.Id == Id)).First().PartnerId)
                         ).First()
                     );
+        } catch (InvalidOperationException) {
+            return NotFound();
+        }
+    }
+
+    [HttpGet("{Id}/image")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<IEnumerable<Image>> GetImage(Guid Id)
+    {
+         _logger.LogInformation("Item({id})/Image at {time}", Id, DateTime.UtcNow.ToLongTimeString());
+
+        try {
+            return Ok(TestData.AllImages().Where(image => (image.ItemId == Id)).ToList());
         } catch (InvalidOperationException) {
             return NotFound();
         }
