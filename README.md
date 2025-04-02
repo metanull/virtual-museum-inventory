@@ -17,7 +17,7 @@ Inventory of a Virtual-Museum. Stores, organizes and gives access to the Items i
 ## The inventory
 
 The `Inventory` database is the lowest layer, sustaining all others.
-Its primary roles is to store the data about **Virtual Museums** (the contexts), **Partners** (the museums) and **Items** (the objects of the partners that are displayed in the Virtual Museums)
+Its primary roles is to store the data about **Virtual Museums** (the contexts), **Partners** (the museums), the **Items** (the objects or monulentd of the partners that are displayed in the Virtual Museums) and their **Images** (different photos of the item) and **Details** (a closer look on a remarquable part of the item) 
 
 The Inventory does NOT store any information related to the business logic of individual applications.
 
